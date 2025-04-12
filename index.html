@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head><meta charset="UTF-8"><link rel="stylesheet" href="./index.css">
+<title>
+
+    👵
+    Customary &middot; Fun as the web used to be
+
+</title>
+</head><body>
+
+<!-- ----------------------------------------------------------------------- -->
+
+<header class="banner"
+        style="
+            display: flex; justify-content: space-around; flex-wrap: wrap; gap: 3em;
+        ">
+    <div
+            style="
+                display: flex; flex-direction: column; align-items: center; gap: 0.5em;
+                justify-content: space-around">
+        <div class="logo">
+            👵 <span class="logo-text">customary.js</span>
+        </div>
+        <div class="tagline">Fun as the web used to be</div>
+    </div>
+    <div
+            style="
+                display: flex; flex-direction: column; align-items: center;
+                justify-content: space-evenly;
+            ">
+        <div class="pitch-caption">Custom Elements:</div>
+        <div class="pitch-text"
+             style="
+                display:flex; gap: 1.5em; align-items: center; text-align: center
+             ">
+            <div>HTML First.<br><span>🥇</span></div>
+            <div>Declarative.<br><span>📋</span></div>
+            <div>Buildless.<br><span>✨</span></div>
+            <div>View Source.<br><span>🔭</span></div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="sections">
+    <div class="section">
+        <div class="section-header">
+            <p class="section-header-title">
+                🥇 HTML First 👵
+            </p>
+            <p class="section-tagline">When a quick web page is all you need.</p>
+        </div>
+        <div class="exhibit">
+            <div class="exhibit-side-by-side">
+                <view-source source="./pages/html-first/index.html"></view-source>
+                <iframe class="exhibit-preview preview-html-first"
+                        src="pages/html-first/index.html"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <p class="section-header-title">
+                📋 Declarative 👵
+            </p>
+            <p class="section-tagline">Keep it simple, even when your page gets complex.</p>
+        </div>
+        <div class="exhibit">
+            <div class="exhibit-side-by-side">
+                <iframe class="exhibit-preview preview-declarative"
+                        src="pages/declarative/index.html"></iframe>
+                <view-source source="./pages/declarative/index.html"></view-source>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <p class="section-header-title">
+                ✨ Buildless 👵
+            </p>
+            <p class="section-tagline">Websites with instant gratification. Reload and upload: what you see is what you get.</p>
+        </div>
+        <div class="exhibit">
+            <div class="exhibit-above-and-below">
+                <iframe class="exhibit-preview preview-buildless"
+                        src="pages/buildless/index.html"></iframe>
+                <view-source source="./pages/buildless/index.html"></view-source>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <p class="section-header-title">
+                🔭 View Source 👵
+            </p>
+            <p class="section-tagline">Visit page. Love it. Right click. View source. Copy it. Use it... <i>Learn.</i></p>
+            <p><b>Fun as the web used to be.</b></p>
+        </div>
+        <div class="exhibit">
+            <div class="exhibit-side-by-side"
+                 style="display: flex; gap: 2em; justify-content: space-evenly">
+                <div style="text-align: center">
+                    <p style="font-size: small"><a href="pages/html-first/index.html" target="_blank">html-first/index.html</a></p>
+                    <iframe class="exhibit-preview preview-html-first"
+                            src="pages/html-first/index.html"></iframe>
+                </div>
+                <div style="text-align: center">
+                    <p style="font-size: small"><a href="pages/declarative/index.html" target="_blank">declarative/index.html</a></p>
+                    <iframe class="exhibit-preview preview-declarative"
+                            src="pages/declarative/index.html"></iframe>
+                </div>
+                <div style="text-align: center">
+                    <p style="font-size: small"><a href="pages/buildless/index.html" target="_blank">buildless/index.html</a></p>
+                    <iframe class="exhibit-preview preview-buildless"
+                            src="pages/buildless/index.html"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="banner"
+        style="
+            display: flex; flex-wrap: wrap; column-gap: 6em; row-gap: 1.5em;
+            justify-content: space-between; align-items: baseline
+        ">
+    <div>
+        <a href="https://github.com/customaryjs" target="_blank">
+            👵 Customary on GitHub
+            <img alt="GitHub logo" style="width: 22px; height: auto" src="images/Octicons-mark-github.svg">
+        </a>
+    </div>
+    <div>
+        <a href="https://customaryjs.github.io/customary-cookbook/" target="_blank">
+            👵🍳 The Customary Cookbook
+        </a>
+    </div>
+    <div>
+        👵 Built with
+        <a href="https://lit.dev/" target="_blank">
+            Lit
+            <img alt="Lit logo" style="width: 16px; height: auto" src="images/lit.svg">
+        </a>
+    </div>
+    <div>
+        👵 Made with &hearts; by
+        <a href="https://github.com/arboliveira/" target="_blank">Arbo🤓</a>
+    </div>
+</footer>
+
+<!-- ----------------------------------------------------------------------- -->
+
+<template data-customary-name="view-source">
+    <style>code {font-size: 16px}</style>
+    <link rel="stylesheet" href="./dependencies/highlight.js/styles/idea.min.css">
+    <pre><code class="language-html" id="source_html"></code></pre>
+</template>
+
+<!-- ----------------------------------------------------------------------- -->
+
+<script type="module">
+	/**
+	 * @type {CustomaryDeclaration}
+	 */
+	globalThis['customary:view-source'] = {
+		config: {attributes: ['source', 'code']},
+		hooks: {changes: {'source': on_source_changed, 'code': on_code_changed}}
+	};
+
+	import highlight from './dependencies/highlight.js/core.min.js';
+	import html from './dependencies/highlight.js/languages/xml.js';
+	highlight.registerLanguage('html', html);
+
+	async function on_source_changed(el, source) {
+		if (!source) return;
+		const response = await fetch(source);
+		const text = await response.text();
+		el.code = text.split('<body>')[1].split('</body>')[0].slice(2);
+	}
+
+	async function on_code_changed(el, code) {
+		const codeElement = el.shadowRoot.getElementById("source_html");
+		codeElement.textContent = code;
+		delete codeElement.dataset.highlighted;
+		highlight.highlightElement(codeElement);
+	}
+</script>
+<script type="module">import './customary.mjs'</script>
+
+<!-- ----------------------------------------------------------------------- -->
+
+</body></html>

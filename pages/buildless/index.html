@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>
+
+    👵
+    Buildless: Customary
+
+</title>
+    <style>body{font-size: 150%}</style>
+</head><body>
+
+<hello-customary text="Hello Customary!"></hello-customary>
+
+<template data-customary-name="hello-customary">
+    <div style="display: flex; flex-direction: column;
+                gap: 10px; align-items: center">
+        <div style="display: flex; flex-direction: row;">
+
+            <dark-mode text="${this.text}"></dark-mode>
+            <light-mode text="${this.text}"></light-mode>
+
+        </div>
+        <div style="text-align: center;">
+            <label>⌨️
+                <input value="${this.text}"
+                       style="font-size: x-large; text-align: center;
+                       background-color: ivory; border-style: inset;"
+                >
+            </label>
+        </div>
+    </div>
+</template>
+
+<script type="module">
+	import {DarkMode} from "./dark-mode.js";
+	import {LightMode} from "./light-mode.js";
+	/**
+	 * @type {CustomaryDeclaration}
+	 */
+	self['customary:hello-customary'] = {
+		config: {attributes: ['text']},
+		hooks: {
+			requires: [DarkMode, LightMode],
+			events: {'input': (el, event) => el.text = event.target.value},
+		},
+	};
+</script>
+
+</body></html>

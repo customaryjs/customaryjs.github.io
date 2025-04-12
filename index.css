@@ -1,0 +1,118 @@
+html {
+    font-size: 17px;
+}
+@media (max-width: 900px) {
+    html { font-size: 15px; }
+}
+@media (max-width: 400px) {
+    html { font-size: 13px; }
+}
+
+header.banner {
+    font-size: 1.3rem;
+}
+
+.banner {
+    padding: 2em;
+    border-top: 1px;
+    border-top-style: dashed;
+    border-bottom: 1px;
+    border-bottom-style: dashed;
+    background-color: whitesmoke;
+}
+.logo {
+    font-family: serif;
+    font-size: 4em;
+}
+.logo-text {
+    font-style: italic;
+}
+.tagline {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.pitch-caption {
+    font-weight: bold;
+    font-size: 1.8em;
+}
+.pitch-text {
+    font-size: 1em;
+}
+.sections {
+    display: flex; flex-direction: column; align-items: center; gap: 1em;
+}
+.section:after {
+    content: "";
+    border-width: 1px;
+    border-style: dotted;
+    border-color: silver;
+    align-self: stretch;
+    order: 1;
+    margin-top: 3em;
+}
+.section:last-child:after {
+    border-style: none;
+}
+.section {
+    display: flex; flex-direction: column; align-items: center;
+    width: 100%;
+}
+.section-header {
+    font-size: 1.3rem;
+    margin: 1em;
+    text-align: center;
+}
+.section-header-title {
+    font-size: 1.6em;
+    font-weight: bolder;
+    margin-bottom: 0px;
+}
+.section-tagline {
+
+}
+.exhibit {
+    display:flex; gap: 1em; flex-direction: column; align-items: center;
+    width: 100%;
+}
+.exhibit-side-by-side {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em; align-items: stretch; justify-content: space-evenly;
+}
+.exhibit-above-and-below {
+    display: flex; flex-direction: column;
+    gap: 1em;
+}
+view-source {
+    border-width: 6px;
+    border-color: lightgray;
+    border-style: outset;
+}
+.exhibit-preview {
+    border-style: double;
+    border-width: 1px;
+    border-radius: 16px;
+    border-color: lightgray;
+    padding: 8px;
+    padding-left: 32px;
+    background-color: whitesmoke;
+}
+
+footer.banner {
+    font-size: 1.3rem;
+}
+
+.preview-html-first {
+    min-height: 180px;
+    max-width: 240px;
+}
+
+.preview-declarative {
+    min-height: 240px;
+    max-width: 180px;
+}
+
+.preview-buildless {
+    min-height: 380px;
+    min-width: 540px;
+}

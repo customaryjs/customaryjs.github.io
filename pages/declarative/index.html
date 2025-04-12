@@ -1,0 +1,53 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>
+
+    👵
+    Declarative: Customary
+
+</title>
+    <style>body{font-size: 150%}</style>
+</head><body>
+
+<hello-customary content="Hello" buffering="yes"></hello-customary>
+<hello-customary content="Customary" volume="loud"></hello-customary>
+
+<script type="application/json" data-customary-name="hello-customary"
+        data-customary-value="renderers"
+>
+    ["italics", "bold"]
+</script>
+
+<template data-customary-name="hello-customary"
+          data-customary-attributes="content, buffering, volume"
+>
+    <for-- items="this.renderers" value="renderer">
+        <p>
+            <if-- condition="this.buffering">...</if-->
+            <switch-- value="renderer">
+                <case-- value="bold">
+                    <b>${this.showtime}</b>
+                </case-->
+                <case-- value="italics">
+                    <i>${this.showtime}</i>
+                </case-->
+            </switch-->
+        </p>
+    </for-->
+</template>
+
+<script type="module">
+    /**
+     * @type {CustomaryDeclaration}
+     */
+    self['customary:hello-customary'] = {
+        hooks: {
+            lifecycle: {
+                willUpdate: el =>
+                    el.showtime = el.content +
+                        (el.volume === 'loud' ? '!' : ''),
+            }
+        }
+    };
+</script>
+<script type="module">import '../../customary.mjs'</script>
+
+</body></html>

@@ -1,0 +1,6 @@
+.area {
+    background-color: black; color: white; padding: 1em;
+    border: 4px inset gray;
+    text-align: right;
+}
+.caption {font-size: xxx-large}
