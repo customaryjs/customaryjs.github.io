@@ -19,19 +19,19 @@
 <template data-customary-name="hello-customary"
           data-customary-attributes="content, buffering, volume"
 >
-    <for-- items="this.renderers" value="renderer">
+    <customary:for items="this.renderers" value="renderer">
         <p>
-            <if-- condition="this.buffering">...</if-->
-            <switch-- value="renderer">
-                <case-- value="bold">
+            <customary:if condition="this.buffering">⏳</customary:if>
+            <customary:switch value="renderer">
+                <customary:case value="bold">
                     <b>${this.showtime}</b>
-                </case-->
-                <case-- value="italics">
+                </customary:case>
+                <customary:case value="italics">
                     <i>${this.showtime}</i>
-                </case-->
-            </switch-->
+                </customary:case>
+            </customary:switch>
         </p>
-    </for-->
+    </customary:for>
 </template>
 
 <script type="module">
@@ -43,7 +43,7 @@
             lifecycle: {
                 willUpdate: el =>
                     el.showtime = el.content +
-                        (el.volume === 'loud' ? '!' : ''),
+                        (el.volume === 'loud' ? '‼️' : ''),
             }
         }
     };
