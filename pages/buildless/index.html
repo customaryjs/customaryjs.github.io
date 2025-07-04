@@ -7,26 +7,39 @@
     <style>body{font-size: 150%}</style>
 </head><body>
 
-<hello-customary text="Hello Customary!"></hello-customary>
+<hello-customary greeting="Hello Customary!"></hello-customary>
 
-<template data-customary-name="hello-customary">
-    <div style="display: flex; flex-direction: column;
-                gap: 10px; align-items: center">
-        <div style="display: flex; flex-direction: row;">
+<template data-customary-name="hello-customary"
+          data-customary-attributes="greeting"
+>
+    <div class="workstation">
+        <div class="dualscreen">
 
-            <dark-mode text="${this.text}"></dark-mode>
-            <light-mode text="${this.text}"></light-mode>
+            <dark-mode text="${this.greeting}"></dark-mode>
+            <light-mode text="${this.greeting}"></light-mode>
 
         </div>
         <div style="text-align: center;">
-            <label>⌨️
-                <input value="${this.text}"
-                       style="font-size: x-large; text-align: center;
-                       background-color: ivory; border-style: inset;"
-                >
+
+            <label>
+                ⌨️ <input data-customary-bind="greeting" />
             </label>
+
         </div>
     </div>
+    <style>
+        .workstation {
+            display: flex; flex-direction: column;
+            gap: 10px; align-items: center;
+        }
+        .dualscreen {
+            display: flex; flex-direction: row;
+        }
+        input {
+            font-size: x-large; text-align: center;
+            background-color: ivory; border-style: inset;
+        }
+    </style>
 </template>
 
 <script type="module">
@@ -36,11 +49,7 @@
 	 * @type {CustomaryDeclaration}
 	 */
 	self['customary:hello-customary'] = {
-		config: {attributes: ['text']},
-		hooks: {
-			requires: [DarkMode, LightMode],
-			events: {'input': (el, event) => el.text = event.target.value},
-		},
+		hooks: {requires: [DarkMode, LightMode]},
 	};
 </script>
 
