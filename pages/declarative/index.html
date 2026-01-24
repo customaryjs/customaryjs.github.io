@@ -4,34 +4,34 @@
     Declarative: Customary
 
 </title>
-    <style>body{font-size: 150%}</style>
+    <style>body {text-align: center}</style>
 </head><body>
 
-<hello-customary content="Hello" buffering="yes"></hello-customary>
-<hello-customary content="Customary" volume="loud"></hello-customary>
+<hello-customary></hello-customary>
 
 <script type="application/json" data-customary-name="hello-customary"
-        data-customary-value="renderers"
+        data-customary-value="numbers"
 >
-    ["italics", "bold"]
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 </script>
 
-<template data-customary-name="hello-customary"
-          data-customary-attributes="content, buffering, volume"
->
-    <customary:for items="this.renderers" value="renderer">
+<template data-customary-name="hello-customary">
+    <customary:for items="this.items" value="item">
         <p>
-            <customary:if condition="this.buffering">⏳</customary:if>
-            <customary:switch value="renderer">
-                <customary:case value="bold">
-                    <b>${this.showtime}</b>
-                </customary:case>
-                <customary:case value="italics">
-                    <i>${this.showtime}</i>
-                </customary:case>
-            </customary:switch>
+            <customary:if condition="item.fizz">🖖</customary:if>
+            <span>
+                <customary:switch value="item.special">
+                    <customary:case value="fizz">Fizz</customary:case>
+                    <customary:case value="buzz">Buzz</customary:case>
+                    <customary:case value="fizzbuzz">Hello Customary!</customary:case>
+                    <customary:case>${item.value}</customary:case>
+                </customary:switch>
+            </span>
+            <customary:if condition="item.buzz">👍</customary:if>
+            <customary:classMap target="span" classInfo="item.classes" />
         </p>
     </customary:for>
+    <style>.fizz {font-style: italic} .buzz {font-weight: bold}</style>
 </template>
 
 <script type="module">
@@ -41,9 +41,16 @@
     self['customary:hello-customary'] = {
         hooks: {
             lifecycle: {
-                willUpdate: el =>
-                    el.showtime = el.content +
-                        (el.volume === 'loud' ? '‼️' : ''),
+                willUpdate: el => el.items = el.numbers.map(value => {
+                    const fizz = value % 3 === 0;
+                    const buzz = value % 5 === 0;
+                    return {
+                        value, fizz, buzz,
+                        classes: {fizz, buzz},
+                        special: fizz && buzz ? 'fizzbuzz'
+                            : fizz ? 'fizz' : buzz ? 'buzz' : ''
+                    };
+                })
             }
         }
     };
