@@ -40,8 +40,8 @@
      */
     self['customary:hello-customary'] = {
         hooks: {
-            lifecycle: {
-                willUpdate: el => el.items = el.numbers.map(value => {
+            derive: {
+                'items': el => el.numbers.map(value => {
                     const fizz = value % 3 === 0;
                     const buzz = value % 5 === 0;
                     return {
