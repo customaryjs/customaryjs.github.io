@@ -16,19 +16,19 @@
 </script>
 
 <template data-customary-name="hello-customary">
-    <customary:for items="this.items" value="item">
+    <customary:for items="{{items}}" value="item">
         <p>
-            <customary:if condition="item.fizz">🖖</customary:if>
+            <customary:if condition="{[item.fizz]}">🖖</customary:if>
             <span>
-                <customary:switch value="item.special">
+                <customary:switch value="{[item.special]}">
                     <customary:case value="fizz">Fizz</customary:case>
                     <customary:case value="buzz">Buzz</customary:case>
                     <customary:case value="fizzbuzz">Hello Customary!</customary:case>
-                    <customary:case>${item.value}</customary:case>
+                    <customary:case>{[item.value]}</customary:case>
                 </customary:switch>
             </span>
-            <customary:if condition="item.buzz">👍</customary:if>
-            <customary:classMap target="span" classInfo="item.classes" />
+            <customary:if condition="{[item.buzz]}">👍</customary:if>
+            <customary:classMap target="span" classInfo="{[item.classes]}" />
         </p>
     </customary:for>
     <style>.fizz {font-style: italic} .buzz {font-weight: bold}</style>
