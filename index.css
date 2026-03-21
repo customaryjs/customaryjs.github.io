@@ -11,9 +11,14 @@ html {
 header.banner {
     font-size: 1.3rem;
 }
+@media (max-width: 1052px) {
+    header.banner {
+        font-size: 1.9rem;
+    }
+}
 
 .banner {
-    padding: 2em;
+    padding: 1em;
     border-top: 1px;
     border-top-style: dashed;
     border-bottom: 1px;
@@ -22,18 +27,18 @@ header.banner {
 }
 .logo {
     font-family: serif;
-    font-size: 4em;
+    font-size: 4.5em;
 }
 .logo-text {
     font-style: italic;
 }
 .tagline {
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 2em;
 }
 .pitch-caption {
     font-weight: bold;
-    font-size: 1.8em;
+    font-size: 1.5em;
 }
 .pitch-text {
     font-size: 1em;
@@ -58,7 +63,7 @@ header.banner {
     width: 100%;
 }
 .section-header {
-    font-size: 1.3rem;
+    font-size: 1.3em;
     margin: 1em;
     text-align: center;
 }
@@ -98,7 +103,12 @@ view-source {
 }
 
 footer.banner {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+}
+@media (max-width: 1410px) {
+    footer.banner {
+        font-size: 1.9rem;
+    }
 }
 
 .preview-html-first {
