@@ -1,22 +1,32 @@
-html {
-    font-size: 14px;
-}
-@media (max-width: 900px) {
-    html { font-size: 15px; }
-}
-@media (max-width: 400px) {
-    html { font-size: 13px; }
-}
+/*
+   --foldable-breakpoint: 832px
+   --mobile-breakpoint: 768px
 
-header.banner {
-    font-size: 1.3rem;
+   Note: CSS variables cannot be used in @media conditions.
+   Search each number to find all uses of its breakpoint.
+*/
+@media (max-width: 832px) {  /* --foldable-breakpoint */
+    .page-layout {
+        --within-foldable-breakpoint: true;
+    }
 }
-@media (max-width: 1052px) {
-    header.banner {
-        font-size: 1.9rem;
+@media (max-width: 768px) {  /* --mobile-breakpoint */
+    .page-layout {
+        --within-mobile-breakpoint: true;
     }
 }
 
+/*
+    zoom
+ */
+@media (max-width: 768px) {  /* --mobile-breakpoint */
+    html { zoom: 55%; }
+}
+
+/*
+    header, logo, pitch
+ */
+header.banner { font-size: 1.3rem; } /* fits 2-column */
 .banner {
     padding: 1em;
     border-top: 1px;
@@ -27,22 +37,26 @@ header.banner {
 }
 .logo {
     font-family: serif;
-    font-size: 4.5em;
+    font-size: 5.0rem;
 }
 .logo-text {
     font-style: italic;
 }
 .tagline {
     font-weight: bold;
-    font-size: 2em;
+    font-size: 2.0rem;
 }
 .pitch-caption {
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 1.6em;
 }
 .pitch-text {
     font-size: 1em;
 }
+
+/*
+    sections
+ */
 .sections {
     display: flex; flex-direction: column; align-items: center; gap: 1em;
 }
@@ -88,11 +102,6 @@ header.banner {
     display: flex; flex-direction: column;
     gap: 1em;
 }
-view-source {
-    border-width: 6px;
-    border-color: lightgray;
-    border-style: outset;
-}
 .exhibit-preview {
     border-style: double;
     border-width: 1px;
@@ -100,15 +109,6 @@ view-source {
     border-color: lightgray;
     padding: 16px;
     background-color: whitesmoke;
-}
-
-footer.banner {
-    font-size: 1.5rem;
-}
-@media (max-width: 1410px) {
-    footer.banner {
-        font-size: 1.9rem;
-    }
 }
 
 .preview-html-first {
@@ -124,4 +124,41 @@ footer.banner {
 .preview-buildless {
     min-height: 320px;
     min-width: 620px;
+}
+
+/*
+    view-source
+ */
+view-source {
+    border-width: 6px;
+    border-color: lightgray;
+    border-style: outset;
+    max-width: 90%;
+}
+@media (max-width: 768px) {  /* --mobile-breakpoint */
+    view-source {
+        max-width: 180dvw;
+    }
+}
+
+
+/*
+footer
+ */
+footer.banner {
+    font-size: 1rem;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 6em;
+    row-gap: 1.5em;
+    justify-content: space-between;
+    align-items: baseline;
+}
+footer.banner > div:nth-child(even) {
+    justify-self: end;
+}
+@media (min-width: 1200px) {
+    footer.banner {
+        grid-template-columns: auto auto auto auto;
+    }
 }
